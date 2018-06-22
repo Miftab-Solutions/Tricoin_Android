@@ -41,14 +41,6 @@ public class Pass_Book_TableView_v2 extends SortableTableView<Pass_Book_Entry_v2
         this(context, attributes, android.R.attr.listViewStyle);
     }
 
-    public interface OnRowLongClickListener {
-        void onRowLongClick(Pass_Book_Entry_v2 clickedData);
-    }
-
-    public void SetOnRowLongClickListener(final OnRowLongClickListener rowLongClickListener) {
-        this.rowLongClickListener = rowLongClickListener;
-    }
-
     public Pass_Book_TableView_v2(final Context context, final AttributeSet attributes, final int styleAttributes) {
         super(context, attributes, styleAttributes);
 
@@ -175,6 +167,14 @@ public class Pass_Book_TableView_v2 extends SortableTableView<Pass_Book_Entry_v2
                 Toast_Utils.longToast(context, "Endless");
             }
         });
+    }
+
+    public void SetOnRowLongClickListener(final OnRowLongClickListener rowLongClickListener) {
+        this.rowLongClickListener = rowLongClickListener;
+    }
+
+    public interface OnRowLongClickListener {
+        void onRowLongClick(Pass_Book_Entry_v2 clickedData);
     }
 
 }

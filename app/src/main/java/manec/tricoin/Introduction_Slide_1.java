@@ -1,16 +1,18 @@
 package manec.tricoin;
 
 import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 
-public class Intro2 extends AppCompatActivity implements Fragment_Intro2.OnFragmentInteractionListener{
+public class Introduction_Slide_1 extends AppCompatActivity implements Fragment_Introduction_Slide_1.OnFragmentInteractionListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.blank_frame);
 
         // create a FragmentManager
@@ -18,12 +20,12 @@ public class Intro2 extends AppCompatActivity implements Fragment_Intro2.OnFragm
         // create a FragmentTransaction to begin the transaction and replace the Fragment
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         // replace the FrameLayout with new Fragment
-        fragmentTransaction.replace(R.id.frameLayout, Fragment_Intro2.newInstance("", ""));
+        fragmentTransaction.replace(R.id.frameLayout, Fragment_Introduction_Slide_1.newInstance("", ""));
         fragmentTransaction.commit(); // save the changes
     }
 
     @Override
     public void onFragmentInteraction(Uri uri) {
-        
+
     }
 }

@@ -56,6 +56,11 @@ public class Pass_Book_Utils {
         if (pass_book_tableView_v2 != null) {
             final Pass_Book_TableView_Data_Adapter_v2 pass_book_tableView_data_adapter_v2 = new Pass_Book_TableView_Data_Adapter_v2(context, pass_book_entries_v2, pass_book_tableView_v2);
             pass_book_tableView_v2.setDataAdapter(pass_book_tableView_data_adapter_v2);
+
+//            ListView internalListView=((AppCompatActivity)context).findViewById(pass_book_tableView_v2.getId());
+//            internalListView.setSelection(pass_book_entries_v2.size()-1);
+
+            pass_book_tableView_v2.setScrollY(pass_book_tableView_v2.getBottom());
             current_pass_book_entries_v2 = pass_book_entries_v2;
             v2_flag = true;
         }

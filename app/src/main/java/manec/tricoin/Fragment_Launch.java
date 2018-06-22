@@ -7,7 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
+
+import ndk.utils.Activity_Utils;
 
 
 /**
@@ -68,13 +71,16 @@ public class Fragment_Launch extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_launch, container, false);
-        ProgressBar progressBar_launch = view.findViewById(R.id.progressBar_launch);
-        progressBar_launch.setOnClickListener(new View.OnClickListener() {
+
+        ImageView imageView=view.findViewById(R.id.imageView);
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                Activity_Utils.start_activity_with_finish(getActivity(), Introduction_Slide_1.class, Application_Specification.APPLICATION_NAME);
             }
         });
+
         return view;
     }
 
