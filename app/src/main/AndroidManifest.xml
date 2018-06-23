@@ -25,7 +25,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Portals"
-            android:label="@string/title_activity_main2"
+            android:label="Ads."
             android:theme="@style/AppTheme.Template.Base">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -36,7 +36,9 @@
         <activity android:name=".Introduction_Slide_1" />
         <activity android:name=".Introduction_Slide_2" />
         <activity android:name=".Introduction_Slide_3" />
-        <activity android:name=".Feed_Activity">
+        <activity
+            android:name=".Feed_Activity"
+            android:label="News">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

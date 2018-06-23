@@ -1,7 +1,7 @@
 package manec.tricoin;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,23 +12,18 @@ import java.util.List;
 public class Feed_Activity extends AppCompatActivity {
 
 
-    private RecyclerView recyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private FeedAdapter adapter;
-    private List<Feed> feedList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.recycler_view);
 
-        feedList = new ArrayList<>();
-        adapter = new FeedAdapter(this, feedList);
+        List<Feed> feedList = new ArrayList<>();
+        FeedAdapter adapter = new FeedAdapter(this, feedList);
 
         // sets our layout manager and recycler view
-        mLayoutManager = new LinearLayoutManager(this);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+        RecyclerView recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setAdapter(adapter);

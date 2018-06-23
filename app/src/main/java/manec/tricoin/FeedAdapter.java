@@ -1,6 +1,7 @@
 package manec.tricoin;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,31 +19,14 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     private Context mContext;
     private List<Feed> feedList;
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-
-        public TextView name, location, description, timeStamp;
-        public ImageView image;
-
-        public MyViewHolder(View view) {
-
-            super(view);
-            name = (TextView) view.findViewById(R.id.cardView_name);
-            location = (TextView) view.findViewById(R.id.cardView_location);
-            description = (TextView) view.findViewById(R.id.cardView_description);
-            timeStamp = (TextView) view.findViewById(R.id.cardView_timestamp);
-            image = (ImageView) view.findViewById(R.id.cardView_image);
-
-        }
-
-    }
-
-    public FeedAdapter(Context mContext, List<Feed> feedList) {
+    FeedAdapter(Context mContext, List<Feed> feedList) {
         this.mContext = mContext;
         this.feedList = feedList;
     }
 
+    @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         // inflate new view when we create new items in our recyclerview
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.cardview_feed, parent, false);
@@ -50,7 +34,7 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         // sets all the text and image resources when the card view is bind in our adapter
         final Feed feed = feedList.get(position);
@@ -66,6 +50,24 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.MyViewHolder> 
                 .fitCenter()
                 .priority(Priority.LOW)
                 .into(holder.image);
+
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+
+        TextView name, location, description, timeStamp;
+        public ImageView image;
+
+        MyViewHolder(View view) {
+
+            super(view);
+            name = view.findViewById(R.id.cardView_name);
+            location = view.findViewById(R.id.cardView_location);
+            description = view.findViewById(R.id.cardView_description);
+            timeStamp = view.findViewById(R.id.cardView_timestamp);
+            image = view.findViewById(R.id.cardView_image);
+
+        }
 
     }
 

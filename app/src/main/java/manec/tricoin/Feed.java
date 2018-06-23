@@ -4,7 +4,7 @@ public class Feed {
 
     private String name, location, imageUrl, description, timeStamp;
 
-    public Feed(String name, String location, String imageUrl, String description, String timeStamp) {
+    Feed(String name, String location, String imageUrl, String description, String timeStamp) {
         this.name = name;
         this.location = location;
         this.imageUrl = imageUrl;

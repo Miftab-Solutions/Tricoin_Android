@@ -1,16 +1,13 @@
 package manec.tricoin;
 
-import android.content.Context;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
-
-import android.support.v7.widget.LinearLayoutManager;
 
 
 /**
@@ -18,14 +15,12 @@ import android.support.v7.widget.LinearLayoutManager;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
-    private Context mContext;
     private ArrayList<AbstractModel> modelList;
 
     private OnItemClickListener mItemClickListener;
 
 
-    public RecyclerViewAdapter(Context context, ArrayList<AbstractModel> modelList) {
-        this.mContext = context;
+    RecyclerViewAdapter(ArrayList<AbstractModel> modelList) {
         this.modelList = modelList;
     }
 
@@ -35,8 +30,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     }
 
+    @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int viewType) {
 
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recycler_list, viewGroup, false);
 
@@ -44,7 +40,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, final int position) {
 
         //Here you can fill your row view
         if (holder instanceof ViewHolder) {
@@ -95,12 +91,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         // RadioButton itemTxtMessage;
         // @BindView(R.id.check_list)
         // CheckBox itemCheckList;
-        public ViewHolder(final View itemView) {
+        ViewHolder(final View itemView) {
             super(itemView);
 
             // ButterKnife.bind(this, itemView);
 
-            this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
+            this.imgUser = itemView.findViewById(R.id.img_user);
 //            this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
 //            this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
 

@@ -1,7 +1,5 @@
 package manec.tricoin;
 
-import java.util.ArrayList;
-
 public class AbstractModel {
 
     private String title;
@@ -9,13 +7,9 @@ public class AbstractModel {
     private String message;
 
 
-    public AbstractModel(String title, String message) {
+    AbstractModel(String title, String message) {
         this.title = title;
         this.message = message;
-    }
-
-    public AbstractModel() {
-
     }
 
     public String getTitle() {

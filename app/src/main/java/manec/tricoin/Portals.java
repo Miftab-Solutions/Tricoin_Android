@@ -1,31 +1,26 @@
 package manec.tricoin;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-
-import android.support.v7.widget.LinearLayoutManager;
-
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-
-import java.util.ArrayList;
-
-import android.support.v4.widget.SwipeRefreshLayout;
-
-import android.widget.Toast;
-import android.os.Handler;
-import android.support.v7.widget.Toolbar;
-
-import android.view.Menu;
-import android.support.v7.widget.SearchView;
-import android.support.v4.view.MenuItemCompat;
 import android.app.SearchManager;
-import android.widget.EditText;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.view.MenuItemCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.view.Menu;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
-import android.support.design.widget.FloatingActionButton;
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Portals extends AppCompatActivity {
@@ -81,17 +76,17 @@ public class Portals extends AppCompatActivity {
     }
 
     private void findViews() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        toolbar = findViewById(R.id.toolbar);
+        recyclerView = findViewById(R.id.recycler_view);
+        swipeRefreshRecyclerList = findViewById(R.id.swipe_refresh_recycler_list);
+        fab = findViewById(R.id.fab);
 
     }
 
     public void initToolbar(String title) {
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayShowHomeEnabled(true);
         getSupportActionBar().setTitle(title);
     }
 
@@ -106,11 +101,11 @@ public class Portals extends AppCompatActivity {
         final SearchView searchView = (SearchView) MenuItemCompat
                 .getActionView(menu.findItem(R.id.action_search));
 
-        SearchManager searchManager = (SearchManager) this.getSystemService(this.SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
+        SearchManager searchManager = (SearchManager) this.getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager != null ? searchManager.getSearchableInfo(this.getComponentName()) : null);
 
         //changing edittext color
-        EditText searchEdit = ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+        EditText searchEdit = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
         searchEdit.setTextColor(Color.WHITE);
         searchEdit.setHintTextColor(Color.WHITE);
         searchEdit.setBackgroundColor(Color.TRANSPARENT);
@@ -146,10 +141,10 @@ public class Portals extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                ArrayList<AbstractModel> filterList = new ArrayList<AbstractModel>();
+                ArrayList<AbstractModel> filterList = new ArrayList<>();
                 if (s.length() > 0) {
                     for (int i = 0; i < modelList.size(); i++) {
-                        if (modelList.get(i).getTitle().toLowerCase().contains(s.toString().toLowerCase())) {
+                        if (modelList.get(i).getTitle().toLowerCase().contains(s.toLowerCase())) {
                             filterList.add(modelList.get(i));
                             mAdapter.updateList(filterList);
                         }
@@ -187,7 +182,7 @@ public class Portals extends AppCompatActivity {
         modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new RecyclerViewAdapter(Portals.this, modelList);
+        mAdapter = new RecyclerViewAdapter(modelList);
 
         recyclerView.setHasFixedSize(true);
 
