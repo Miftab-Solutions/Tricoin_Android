@@ -180,7 +180,7 @@ public class Portals extends AppCompatActivity {
 //        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
 //        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
-        modelList.add(new AbstractModel(R.drawable.ic_camera_black_720dp));
+        modelList.add(new AbstractModel(R.drawable.ad_01));
 
         mAdapter = new RecyclerViewAdapter(modelList);
 
