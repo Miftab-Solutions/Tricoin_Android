@@ -17,7 +17,6 @@ import android.text.Spanned;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -144,10 +143,10 @@ public class Portals extends AppCompatActivity {
                 ArrayList<AbstractModel> filterList = new ArrayList<>();
                 if (s.length() > 0) {
                     for (int i = 0; i < modelList.size(); i++) {
-                        if (modelList.get(i).getTitle().toLowerCase().contains(s.toLowerCase())) {
-                            filterList.add(modelList.get(i));
-                            mAdapter.updateList(filterList);
-                        }
+//                        if (modelList.get(i).getTitle().toLowerCase().contains(s.toLowerCase())) {
+//                            filterList.add(modelList.get(i));
+//                            mAdapter.updateList(filterList);
+//                        }
                     }
 
                 } else {
@@ -165,22 +164,23 @@ public class Portals extends AppCompatActivity {
     private void setAdapter() {
 
 
-        modelList.add(new AbstractModel("Android", "Hello " + " Android"));
-        modelList.add(new AbstractModel("Beta", "Hello " + " Beta"));
-        modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
-        modelList.add(new AbstractModel("Donut", "Hello " + " Donut"));
-        modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair"));
-        modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo"));
-        modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread"));
-        modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
-        modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
-        modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean"));
-        modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat"));
-        modelList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop"));
-        modelList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow"));
-        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
-        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
+//        modelList.add(new AbstractModel("Android", "Hello " + " Android"));
+//        modelList.add(new AbstractModel("Beta", "Hello " + " Beta"));
+//        modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
+//        modelList.add(new AbstractModel("Donut", "Hello " + " Donut"));
+//        modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair"));
+//        modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo"));
+//        modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread"));
+//        modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
+//        modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
+//        modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean"));
+//        modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat"));
+//        modelList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop"));
+//        modelList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow"));
+//        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
+//        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
+        modelList.add(new AbstractModel(R.drawable.ic_camera_black_720dp));
 
         mAdapter = new RecyclerViewAdapter(modelList);
 
@@ -201,8 +201,7 @@ public class Portals extends AppCompatActivity {
             public void onItemClick(View view, int position, AbstractModel model) {
 
                 //handle item click events here
-                Toast.makeText(Portals.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
-
+//                Toast.makeText(Portals.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
 
             }
         });

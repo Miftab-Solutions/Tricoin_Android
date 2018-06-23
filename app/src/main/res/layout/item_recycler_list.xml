@@ -21,8 +21,10 @@
         <ImageView
             android:id="@+id/img_user"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="#16000000" />
+            android:layout_height="wrap_content"
+            android:background="#16000000"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/ic_camera_black_720dp" />
 
     </LinearLayout>
 

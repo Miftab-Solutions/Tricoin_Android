@@ -47,6 +47,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             final AbstractModel model = getItem(position);
             ViewHolder genericViewHolder = (ViewHolder) holder;
 
+            genericViewHolder.imgUser.setImageResource(model.getImage());
 //            genericViewHolder.itemTxtTitle.setText(model.getTitle());
 //            genericViewHolder.itemTxtMessage.setText(model.getMessage());
 
@@ -105,7 +106,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 @Override
                 public void onClick(View view) {
                     mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
-
 
                 }
             });
