@@ -14,6 +14,7 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.Spanned;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
@@ -180,7 +181,20 @@ public class Portals extends AppCompatActivity {
 //        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
 //        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
-        modelList.add(new AbstractModel(R.drawable.ad_01));
+        String package_name = getApplicationContext().getPackageName();
+        for (int i = 1; i <= 88; i++) {
+            String id = String.valueOf(i);
+            if (id.length() == 1) {
+                id = "0" + id;
+            }
+//            Log.d(Application_Specification.APPLICATION_NAME, "ID : ad_"+id+".jpg");
+//            Log.d(Application_Specification.APPLICATION_NAME, "ID : ad_"+id);
+            Log.d(Application_Specification.APPLICATION_NAME, "Complete ID : " + package_name + "/ad_" + id);
+            modelList.add(new AbstractModel(getResources().getIdentifier(package_name + ":drawable/ad_" + id, null, null)));
+        }
+
+//        modelList.add(new AbstractModel(R.drawable.ad_01));
+//        modelList.add(new AbstractModel(getResources().getIdentifier(package_name+":drawable/ad_01", null, null)));
 
         mAdapter = new RecyclerViewAdapter(modelList);
 
