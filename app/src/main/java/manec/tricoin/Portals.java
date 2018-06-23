@@ -14,13 +14,15 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.text.InputFilter;
 import android.text.Spanned;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 
 import java.util.ArrayList;
 import java.util.Objects;
+
+import ndk.utils.Resource_Utils;
+import ndk.utils.String_Utils;
 
 
 public class Portals extends AppCompatActivity {
@@ -164,7 +166,6 @@ public class Portals extends AppCompatActivity {
 
     private void setAdapter() {
 
-
 //        modelList.add(new AbstractModel("Android", "Hello " + " Android"));
 //        modelList.add(new AbstractModel("Beta", "Hello " + " Beta"));
 //        modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
@@ -181,16 +182,20 @@ public class Portals extends AppCompatActivity {
 //        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
 //        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
-        String package_name = getApplicationContext().getPackageName();
+//        String package_name = getApplicationContext().getPackageName();
         for (int i = 1; i <= 88; i++) {
-            String id = String.valueOf(i);
-            if (id.length() == 1) {
-                id = "0" + id;
-            }
+
+//            String id = String.valueOf(i);
+//            if (id.length() == 1) {
+//                id = "0" + id;
+//            }
 //            Log.d(Application_Specification.APPLICATION_NAME, "ID : ad_"+id+".jpg");
 //            Log.d(Application_Specification.APPLICATION_NAME, "ID : ad_"+id);
-            Log.d(Application_Specification.APPLICATION_NAME, "Complete ID : " + package_name + "/ad_" + id);
-            modelList.add(new AbstractModel(getResources().getIdentifier(package_name + ":drawable/ad_" + id, null, null)));
+//            Log.d(Application_Specification.APPLICATION_NAME, "Complete ID : " + Resource_Utils.get_drawable_identifier(getApplicationContext(), "ad_" + id));
+
+//            Log.d(Application_Specification.APPLICATION_NAME, "Complete ID : " + Resource_Utils.get_drawable_identifier(getApplicationContext(), String_Utils.get_two_digited_hyphen_divided_zero_filled_length_constrained_serial_number_suffixed_name("ad",i)));
+
+            modelList.add(new AbstractModel(Resource_Utils.get_drawable_identifier(getApplicationContext(), String_Utils.get_two_digited_hyphen_divided_zero_filled_length_constrained_serial_number_suffixed_name("ad", i))));
         }
 
 //        modelList.add(new AbstractModel(R.drawable.ad_01));
