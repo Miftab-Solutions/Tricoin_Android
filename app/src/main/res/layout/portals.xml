@@ -27,6 +27,10 @@
                 android:id="@+id/recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="6dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingTop="6dp"
                 android:scrollbars="vertical" />
 
         </android.support.v4.widget.SwipeRefreshLayout>
@@ -45,9 +49,8 @@
         app:elevation="6dp"
         app:fabSize="normal"
         app:layout_anchor="@+id/recycler_view"
-        app:layout_anchorGravity="bottom|end"
-        app:layout_behavior="manec.tricoin.FABScrollBehaviour" />
-
+        app:layout_anchorGravity="bottom|end" />
+    <!--app:layout_behavior="manec.tricoin.FABScrollBehaviour" -->
 
 </android.support.design.widget.CoordinatorLayout>
 
