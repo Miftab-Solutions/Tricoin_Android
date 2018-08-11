@@ -13,6 +13,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
 
     buildTypes {
@@ -20,6 +21,10 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
     }
 }
 
@@ -36,5 +41,19 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.bumptech.glide:glide:3.8.0'
 //    implementation project(path: ':common')
-    implementation 'com.github.Baneeishaque:Android_Common_Utils:08d1c983c7'
+//    implementation 'com.github.Baneeishaque:Android_Common_Utils:08d1c983c7'
+    implementation 'com.github.Baneeishaque:Android_Common_Utils:9c057adeab'
+//    compile 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    implementation 'it.starksoftware:ssForm:1.1.0'
+    implementation 'com.github.whataa:pandora:v1.1.1'
+//    releaseImplementation 'com.github.whataa:pandora-no-op:v1.1.1'
+//    implementation "com.thejuki:k-form-master:4.5.1"
+    implementation 'me.riddhimanadib.form-master:form-master:1.1.0'
+    implementation 'com.github.dariopellegrini:FormBuilder:v0.9.2'
+
+    implementation 'com.github.pwittchen:prefser-rx2:2.2.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+    implementation 'me.riddhimanadib.bottom-nav-bar:bottom-nav-bar:1.0.1'
+    implementation 'com.android.support:multidex:1.0.3'
 }

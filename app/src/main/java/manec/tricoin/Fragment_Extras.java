@@ -3,25 +3,22 @@ package manec.tricoin;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import manec.tricoin.utils.Activity_Utils_Extension;
-
 
 /**
  * A simple {@link Fragment} subclass.
  * Activities that contain this fragment must implement the
- * {@link Fragment_Introduction_Slide_4.OnFragmentInteractionListener} interface
+ * {@link Fragment_Extras.OnFragmentInteractionListener} interface
  * to handle interaction events.
- * Use the {@link Fragment_Introduction_Slide_4#newInstance} factory method to
+ * Use the {@link Fragment_Extras#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Fragment_Introduction_Slide_4 extends Fragment {
+public class Fragment_Extras extends Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -33,7 +30,7 @@ public class Fragment_Introduction_Slide_4 extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-    public Fragment_Introduction_Slide_4() {
+    public Fragment_Extras() {
         // Required empty public constructor
     }
 
@@ -43,11 +40,11 @@ public class Fragment_Introduction_Slide_4 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment Fragment_Introduction_Slide_4.
+     * @return A new instance of fragment Fragment_Extras.
      */
     // TODO: Rename and change types and number of parameters
-    public static Fragment_Introduction_Slide_4 newInstance(String param1, String param2) {
-        Fragment_Introduction_Slide_4 fragment = new Fragment_Introduction_Slide_4();
+    public static Fragment_Extras newInstance(String param1, String param2) {
+        Fragment_Extras fragment = new Fragment_Extras();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,21 +62,13 @@ public class Fragment_Introduction_Slide_4 extends Fragment {
     }
 
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view=inflater.inflate(R.layout.fragment_introduction_slide_4, container, false);
-        TextView textView=view.findViewById(R.id.textView);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Activity_Utils_Extension.start_activity_with_finish(getActivity(), Activity_Reference_Code.class, Application_Specification.APPLICATION_NAME);
-
-//                Activity_Utils.start_activity_with_finish(getActivity(), Activity_Login.class,Application_Specification.APPLICATION_NAME);
-            }
-        });
-        return view;
+//        return inflater.inflate(R.layout.fragment_extras, container, false);
+        TextView textView = new TextView(getActivity());
+        textView.setText("Extras");
+        return textView;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
